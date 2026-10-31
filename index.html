@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MadMarkZ | Fashion & Gadgets</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f7f7f7;color:#171717}
+header{background:#111;color:white;padding:22px 6%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px}
+.logo span{color:#e5a44d}
+nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px}
+.hero{background:#171717;color:white;padding:65px 7%;text-align:center}
+.hero h1{font-size:42px;margin-bottom:15px}
+.hero p{color:#ccc;font-size:16px;line-height:1.7}
+.hero strong{color:#e5a44d}
+.search{margin:25px auto 0;max-width:430px}
+.search input{width:100%;padding:14px;border:0;border-radius:8px;font-size:15px}
+.categories{text-align:center;padding:30px 15px}
+.categories button{padding:11px 18px;margin:5px;border:1px solid #222;border-radius:25px;background:white;cursor:pointer}
+.categories button.active,.categories button:hover{background:#171717;color:white}
+.section{padding:25px 6% 55px}
+.section h2{font-size:26px;margin-bottom:10px}
+.sub{color:#777;margin-bottom:25px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 15px #00000010}
+.card img{width:100%;height:210px;object-fit:cover;background:#eee}
+.info{padding:17px}
+.tag{font-size:11px;color:#a16a24;font-weight:bold;text-transform:uppercase}
+.info h3{margin:10px 0;font-size:18px}
+.info p{font-size:13px;color:#777;line-height:1.5}
+.buy{display:block;text-align:center;margin-top:16px;padding:12px;background:#171717;color:white;text-decoration:none;border-radius:7px;font-weight:bold}
+.buy:hover{background:#a16a24}
+.about{background:#eee;text-align:center;padding:45px 8%;line-height:1.8}
+footer{background:#111;color:#ccc;text-align:center;padding:28px 15px;font-size:13px;line-height:2}
+footer a{color:white}
+@media(max-width:600px){
+header{padding:18px 5%}
+nav a{margin-left:9px;font-size:12px}
+.hero h1{font-size:32px}
+.section{padding-left:5%;padding-right:5%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">MAD<span>MARK</span>Z</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Find Your Next Favourite.</h1>
+  <p>Discover trending <strong>Fashion, Gadgets & Lifestyle</strong> products.</p>
+  <p>Handpicked finds. Smart choices. Better shopping.</p>
+  <div class="search">
+    <input id="search" type="text" placeholder="Search products..." oninput="filterProducts()">
+  </div>
+</section>
+
+<div class="categories">
+  <button class="active" onclick="choose('All',this)">All</button>
+  <button onclick="choose('Fashion',this)">Fashion</button>
+  <button onclick="choose('Gadgets',this)">Gadgets</button>
+  <button onclick="choose('Lifestyle',this)">Lifestyle</button>
+</div>
+
+<section class="section" id="products">
+  <h2>Explore Our Picks</h2>
+  <p class="sub">Discover products worth checking out.</p>
+
+  <div class="products" id="productList">
+
+    <article class="card" data-category="Fashion">
+      <img src="https://placehold.co/500x400?text=Mens+Fashion" alt="Men's fashion">
+      <div class="info">
+        <span class="tag">Fashion</span>
+        <h3>Men's Style Picks</h3>
+        <p>Explore everyday fashion and outfit essentials.</p>
+        <a class="buy" href="#" onclick="comingSoon(event)">Explore Product</a>
+      </div>
+    </article>
+
+    <article class="card" data-category="Fashion">
+      <img src="https://placehold.co/500x400?text=Womens+Fashion" alt="Women's fashion">
+      <div class="info">
+        <span class="tag">Fashion</span>
+        <h3>Women's Style Picks</h3>
+        <p>Discover stylish clothing and accessories.</p>
+        <a class="buy" href="#" onclick="comingSoon(event)">Explore Product</a>
+      </div>
+    </article>
+
+    <article class="card" data-category="Gadgets">
+      <img src="https://placehold.co/500x400?text=Tech+Gadgets" alt="Tech gadgets">
+      <div class="info">
+        <span class="tag">Gadgets</span>
+        <h3>Trending Tech Gadgets</h3>
+        <p>Explore useful gadgets and smart accessories.</p>
+        <a class="buy" href="#" onclick="comingSoon(event)">Explore Product</a>
+      </div>
+    </article>
+
+    <article class="card" data-category="Lifestyle">
+      <img src="https://placehold.co/500x400?text=Lifestyle" alt="Lifestyle products">
+      <div class="info">
+        <span class="tag">Lifestyle</span>
+        <h3>Everyday Essentials</h3>
+        <p>Useful finds to make everyday life easier.</p>
+        <a class="buy" href="#" onclick="comingSoon(event)">Explore Product</a>
+      </div>
+    </article>
+
+  </div>
+  <p id="empty" style="display:none;text-align:center;padding:25px">No products found.</p>
+</section>
+
+<section class="about" id="about">
+  <h2>About MadMarkZ</h2>
+  <p>MadMarkZ helps you discover interesting fashion, technology and lifestyle products. We share handpicked recommendations to make your shopping easier.</p>
+</section>
+
+<footer>
+  <p><strong>MADMARKZ</strong> © 2026</p>
+  <p>Fashion | Gadgets | Lifestyle</p>
+  <p>Affiliate Disclosure: We may earn a commission from qualifying purchases through affiliate links, at no extra cost to you.</p>
+  <p>Contact: Add your email here</p>
+</footer>
+
+<script>
+let selected = "All";
+
+function choose(category,button){
+  selected=category;
+  document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  filterProducts();
+}
+
+function filterProducts(){
+  let search=document.getElementById("search").value.toLowerCase();
+  let cards=document.querySelectorAll(".card");
+  let count=0;
+  cards.forEach(card=>{
+    let matchCategory=selected==="All" || card.dataset.category===selected;
+    let matchSearch=card.innerText.toLowerCase().includes(search);
+    card.style.display=matchCategory && matchSearch ? "block":"none";
+    if(matchCategory && matchSearch) count++;
+  });
+  document.getElementById("empty").style.display=count===0?"block":"none";
+}
+
+function comingSoon(event){
+  event.preventDefault();
+  alert("Product affiliate link will be added soon!");
+}
+</script>
+
+</body>
+</html>
