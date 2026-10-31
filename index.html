@@ -2,165 +2,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MadMarkZ | Fashion & Gadgets</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f7f7f7;color:#171717}
-header{background:#111;color:white;padding:22px 6%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:25px;font-weight:900;letter-spacing:2px}
-.logo span{color:#e5a44d}
-nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px}
-.hero{background:#171717;color:white;padding:65px 7%;text-align:center}
-.hero h1{font-size:42px;margin-bottom:15px}
-.hero p{color:#ccc;font-size:16px;line-height:1.7}
-.hero strong{color:#e5a44d}
-.search{margin:25px auto 0;max-width:430px}
-.search input{width:100%;padding:14px;border:0;border-radius:8px;font-size:15px}
-.categories{text-align:center;padding:30px 15px}
-.categories button{padding:11px 18px;margin:5px;border:1px solid #222;border-radius:25px;background:white;cursor:pointer}
-.categories button.active,.categories button:hover{background:#171717;color:white}
-.section{padding:25px 6% 55px}
-.section h2{font-size:26px;margin-bottom:10px}
-.sub{color:#777;margin-bottom:25px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 15px #00000010}
-.card img{width:100%;height:210px;object-fit:cover;background:#eee}
-.info{padding:17px}
-.tag{font-size:11px;color:#a16a24;font-weight:bold;text-transform:uppercase}
-.info h3{margin:10px 0;font-size:18px}
-.info p{font-size:13px;color:#777;line-height:1.5}
-.buy{display:block;text-align:center;margin-top:16px;padding:12px;background:#171717;color:white;text-decoration:none;border-radius:7px;font-weight:bold}
-.buy:hover{background:#a16a24}
-.about{background:#eee;text-align:center;padding:45px 8%;line-height:1.8}
-footer{background:#111;color:#ccc;text-align:center;padding:28px 15px;font-size:13px;line-height:2}
-footer a{color:white}
-@media(max-width:600px){
-header{padding:18px 5%}
-nav a{margin-left:9px;font-size:12px}
-.hero h1{font-size:32px}
-.section{padding-left:5%;padding-right:5%}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <title>MADMARKZ | Fashion, Gadgets & Lifestyle Finds</title>
+  <meta name="description" content="Discover handpicked fashion, gadgets and lifestyle products with MADMARKZ.">
+  <style>
+    :root{--bg:#101010;--panel:#171717;--panel2:#202020;--text:#f5f3ef;--muted:#aaa7a1;--accent:#e5a44d;--line:rgba(255,255,255,.1);--white:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(15,15,15,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-size:27px;font-weight:900;letter-spacing:1.5px;white-space:nowrap}
+    .logo span{color:var(--accent)}
+    nav{display:flex;align-items:center;gap:30px;color:#ddd;font-size:14px}
+    nav a:hover{color:var(--accent)}
+    .nav-cta{border:1px solid rgba(229,164,77,.55);padding:9px 16px;border-radius:30px;color:var(--accent)}
+    .menu{display:none;background:none;color:white;border:0;font-size:25px}
+    .hero{position:relative;overflow:hidden;padding:100px 0 88px;background:radial-gradient(ellipse at 50% 0%,rgba(229,164,77,.16),transparent 54%),linear-gradient(135deg,#151515,#0d0d0d)}
+    .hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(229,164,77,.12);border-radius:50%;right:-150px;top:10px;box-shadow:0 0 0 35px rgba(229,164,77,.025),0 0 0 75px rgba(229,164,77,.02);pointer-events:none}
+    .eyebrow{color:var(--accent);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:18px}
+    .hero-inner{max-width:760px;margin:auto;text-align:center;position:relative;z-index:1}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.06;letter-spacing:-2.5px;margin-bottom:22px}
+    h1 span{color:var(--accent)}
+    .hero p{max-width:590px;margin:0 auto;color:#bcb8b1;font-size:17px}
+    .hero-actions{display:flex;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:30px;padding:13px 22px;font-weight:700;font-size:13px;transition:.2s;border:1px solid transparent}
+    .btn-primary{background:var(--accent);color:#17120b}
+    .btn-primary:hover{transform:translateY(-2px);background:#f0b765}
+    .btn-outline{border-color:rgba(255,255,255,.25);color:#eee}
+    .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+    .trust{display:flex;justify-content:center;gap:25px;margin-top:42px;color:#8e8a83;font-size:11px;letter-spacing:1px;text-transform:uppercase;flex-wrap:wrap}
+    .trust b{color:#ddd;font-weight:600}
+    .shop{padding:76px 0 90px;background:#f4f2ee;color:#171717}
+    .shop .eyebrow{color:#a86b22}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+    h2{font-size:clamp(29px,4vw,42px);letter-spacing:-1.2px;line-height:1.15}
+    .sub{color:#777;margin-top:8px;font-size:14px}
+    .search-wrap{position:relative;width:min(340px,100%)}
+    .search-wrap input{width:100%;border:1px solid #ddd;background:white;border-radius:30px;padding:13px 18px 13px 44px;outline:none;color:#171717}
+    .search-wrap input:focus{border-color:#b77a30;box-shadow:0 0 0 3px rgba(183,122,48,.12)}
+    .search-icon{position:absolute;left:17px;top:10px;color:#777;font-size:18px}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 34px}
+    .filter{border:1px solid #d5d1ca;border-radius:30px;background:transparent;padding:9px 19px;color:#333;font-size:13px;cursor:pointer;transition:.2s}
+    .filter:hover,.filter.active{background:#171717;color:#fff;border-color:#171717}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    .card{background:#fff;border:1px solid #e9e6e0;border-radius:17px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.045);transition:.25s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(0,0,0,.1)}
+    .photo{height:230px;position:relative;background:#e8e5df;overflow:hidden}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+    .card:hover .photo img{transform:scale(1.05)}
+    .tag{position:absolute;top:13px;left:13px;background:rgba(255,255,255,.92);padding:5px 10px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#29231b}
+    .info{padding:18px}
+    .category{font-size:10px;color:#a16a2b;text-transform:uppercase;letter-spacing:1.5px;font-weight:800}
+    .info h3{font-size:17px;margin:6px 0;color:#191919}
+    .desc{font-size:12px;color:#777;min-height:38px}
+    .bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:17px}
+    .price{font-weight:800;color:#191919;font-size:15px}
+    .buy{background:#171717;color:white;padding:9px 14px;border-radius:25px;font-size:11px;font-weight:700}
+    .buy:hover{background:#a86b22}
+    .empty{grid-column:1/-1;text-align:center;padding:45px;color:#777}
+    .note{font-size:11px;color:#777;margin-top:22px}
+    .about{padding:78px 0;background:#151515}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .about-box{border:1px solid var(--line);border-radius:18px;padding:28px;background:linear-gradient(145deg,#1e1e1e,#141414)}
+    .about-box .big{font-size:46px;color:var(--accent);font-weight:900;line-height:1}
+    .about-box p{color:#aaa;margin-top:12px;font-size:13px}
+    .about p.body{color:#aaa;margin-top:17px;max-width:520px}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:#888;font-size:12px}
+    .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .foot strong{color:#eee;letter-spacing:1px}
+    .disclosure{margin-top:15px;max-width:850px;line-height:1.7}
+    @media(max-width:760px){
+      .wrap{width:min(100% - 30px,560px)}
+      .nav{height:66px}.logo{font-size:23px}nav{gap:15px;font-size:12px}.nav-cta{display:none}
+      .hero{padding:76px 0 65px}.hero p{font-size:15px}.trust{gap:12px;font-size:9px}
+      .shop{padding:58px 0 65px}.section-head{display:block}.search-wrap{margin-top:20px;width:100%}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      .photo{height:180px}.info{padding:13px}.info h3{font-size:14px}.desc{font-size:11px;min-height:50px}
+      .bottom{align-items:flex-start;flex-direction:column}.buy{width:100%;text-align:center}
+      .about-grid{grid-template-columns:1fr;gap:25px}.about{padding:58px 0}
+    }
+    @media(max-width:390px){nav{gap:10px;font-size:11px}.logo{font-size:20px}.grid{grid-template-columns:1fr}.photo{height:230px}.bottom{flex-direction:row;align-items:center}.buy{width:auto}}
+  </style>
 </head>
 <body>
-
 <header>
-  <div class="logo">MAD<span>MARK</span>Z</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-  </nav>
+  <div class="wrap nav">
+    <a class="logo" href="#home">MAD<span>MARKZ</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#products">Explore finds ↗</a>
+    </nav>
+    <button class="menu" aria-label="Back to top" onclick="location.href='#home'">☰</button>
+  </div>
 </header>
 
-<section class="hero" id="home">
-  <h1>Find Your Next Favourite.</h1>
-  <p>Discover trending <strong>Fashion, Gadgets & Lifestyle</strong> products.</p>
-  <p>Handpicked finds. Smart choices. Better shopping.</p>
-  <div class="search">
-    <input id="search" type="text" placeholder="Search products..." oninput="filterProducts()">
-  </div>
-</section>
-
-<div class="categories">
-  <button class="active" onclick="choose('All',this)">All</button>
-  <button onclick="choose('Fashion',this)">Fashion</button>
-  <button onclick="choose('Gadgets',this)">Gadgets</button>
-  <button onclick="choose('Lifestyle',this)">Lifestyle</button>
-</div>
-
-<section class="section" id="products">
-  <h2>Explore Our Picks</h2>
-  <p class="sub">Discover products worth checking out.</p>
-
-  <div class="products" id="productList">
-
-    <article class="card" data-category="Fashion">
-      <img src="https://placehold.co/500x400?text=Mens+Fashion" alt="Men's fashion">
-      <div class="info">
-        <span class="tag">Fashion</span>
-        <h3>Men's Style Picks</h3>
-        <p>Explore everyday fashion and outfit essentials.</p>
-        <a class="buy" href="#" onclick="comingSoon(event)">Explore Product</a>
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Curated finds • Smart shopping</div>
+      <h1>Find Your Next<br><span>Favourite.</span></h1>
+      <p>Discover trending fashion, clever gadgets and everyday lifestyle finds. Handpicked ideas to make your next choice a little easier.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#products">Explore products&nbsp; ↗</a>
+        <a class="btn btn-outline" href="#about">About MADMARKZ</a>
       </div>
-    </article>
+      <div class="trust"><span><b>01</b> Fashion</span><span><b>02</b> Gadgets</span><span><b>03</b> Lifestyle</span></div>
+    </div>
+  </section>
 
-    <article class="card" data-category="Fashion">
-      <img src="https://placehold.co/500x400?text=Womens+Fashion" alt="Women's fashion">
-      <div class="info">
-        <span class="tag">Fashion</span>
-        <h3>Women's Style Picks</h3>
-        <p>Discover stylish clothing and accessories.</p>
-        <a class="buy" href="#" onclick="comingSoon(event)">Explore Product</a>
+  <section class="shop" id="products">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">The edit</div><h2>Explore Our Picks</h2><p class="sub">A few handpicked ideas worth checking out.</p></div>
+        <div class="search-wrap"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="Search products..." aria-label="Search products"></div>
       </div>
-    </article>
-
-    <article class="card" data-category="Gadgets">
-      <img src="https://placehold.co/500x400?text=Tech+Gadgets" alt="Tech gadgets">
-      <div class="info">
-        <span class="tag">Gadgets</span>
-        <h3>Trending Tech Gadgets</h3>
-        <p>Explore useful gadgets and smart accessories.</p>
-        <a class="buy" href="#" onclick="comingSoon(event)">Explore Product</a>
+      <div class="filters" role="group" aria-label="Filter products">
+        <button class="filter active" data-filter="All">All finds</button>
+        <button class="filter" data-filter="Fashion">Fashion</button>
+        <button class="filter" data-filter="Gadgets">Gadgets</button>
+        <button class="filter" data-filter="Lifestyle">Lifestyle</button>
       </div>
-    </article>
+      <div class="grid" id="productGrid"></div>
+      <p class="note">Product links and prices are sample placeholders for now. Add your real affiliate links and verify current prices before publishing.</p>
+    </div>
+  </section>
 
-    <article class="card" data-category="Lifestyle">
-      <img src="https://placehold.co/500x400?text=Lifestyle" alt="Lifestyle products">
-      <div class="info">
-        <span class="tag">Lifestyle</span>
-        <h3>Everyday Essentials</h3>
-        <p>Useful finds to make everyday life easier.</p>
-        <a class="buy" href="#" onclick="comingSoon(event)">Explore Product</a>
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="eyebrow">A little about us</div>
+        <h2>Good finds.<br><span style="color:var(--accent)">Better choices.</span></h2>
+        <p class="body">MADMARKZ brings together fashion, gadgets and lifestyle products in one simple place. The goal is to make discovering useful and interesting products easier.</p>
       </div>
-    </article>
-
-  </div>
-  <p id="empty" style="display:none;text-align:center;padding:25px">No products found.</p>
-</section>
-
-<section class="about" id="about">
-  <h2>About MadMarkZ</h2>
-  <p>MadMarkZ helps you discover interesting fashion, technology and lifestyle products. We share handpicked recommendations to make your shopping easier.</p>
-</section>
+      <div class="about-box">
+        <div class="big">MAD<br>MARKZ.</div>
+        <p>Discover. Choose. Shop.<br>Curated product inspiration for everyday life.</p>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <p><strong>MADMARKZ</strong> © 2026</p>
-  <p>Fashion | Gadgets | Lifestyle</p>
-  <p>Affiliate Disclosure: We may earn a commission from qualifying purchases through affiliate links, at no extra cost to you.</p>
-  <p>Contact: Add your email here</p>
+  <div class="wrap">
+    <div class="foot"><strong>MADMARKZ</strong><span>© <span id="year"></span> MADMARKZ. All rights reserved.</span><a href="#home">Back to top ↑</a></div>
+    <p class="disclosure"><strong>Affiliate disclosure:</strong> Some links on this website may be affiliate links. If you buy through them, MADMARKZ may earn a small commission at no extra cost to you. We will identify affiliate links where applicable.</p>
+  </div>
 </footer>
 
 <script>
-let selected = "All";
-
-function choose(category,button){
-  selected=category;
-  document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
-  filterProducts();
-}
-
-function filterProducts(){
-  let search=document.getElementById("search").value.toLowerCase();
-  let cards=document.querySelectorAll(".card");
-  let count=0;
-  cards.forEach(card=>{
-    let matchCategory=selected==="All" || card.dataset.category===selected;
-    let matchSearch=card.innerText.toLowerCase().includes(search);
-    card.style.display=matchCategory && matchSearch ? "block":"none";
-    if(matchCategory && matchSearch) count++;
-  });
-  document.getElementById("empty").style.display=count===0?"block":"none";
-}
-
-function comingSoon(event){
-  event.preventDefault();
-  alert("Product affiliate link will be added soon!");
-}
+  // Replace each sample link ("#") with your own approved affiliate product URL.
+  const products = [
+    {name:"Everyday Streetwear",category:"Fashion",desc:"A versatile style idea for everyday outfits.",price:"Check price",tag:"Style pick",image:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85",link:"#"},
+    {name:"Minimal Everyday Sneakers",category:"Fashion",desc:"A clean sneaker look that pairs with almost anything.",price:"Check price",tag:"Popular",image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",link:"#"},
+    {name:"Wireless Audio",category:"Gadgets",desc:"A handy audio companion for music and calls.",price:"Check price",tag:"Tech pick",image:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=900&q=85",link:"#"},
+    {name:"Smart Desk Setup",category:"Gadgets",desc:"Small upgrades for a cleaner workspace.",price:"Check price",tag:"Desk edit",image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85",link:"#"},
+    {name:"Daily Carry Bottle",category:"Lifestyle",desc:"A simple everyday essential to keep close.",price:"Check price",tag:"Daily essential",image:"https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85",link:"#"},
+    {name:"Cozy Room Details",category:"Lifestyle",desc:"Little touches to make your space feel yours.",price:"Check price",tag:"Home edit",image:"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85",link:"#"}
+  ];
+  let activeFilter="All";
+  const grid=document.getElementById("productGrid");
+  const search=document.getElementById("search");
+  function render(){
+    const term=search.value.trim().toLowerCase();
+    const shown=products.filter(p=>(activeFilter==="All"||p.category===activeFilter)&&(`${p.name} ${p.category} ${p.desc}`).toLowerCase().includes(term));
+    grid.innerHTML=shown.length?shown.map(p=>`
+      <article class="card">
+        <div class="photo"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"><span class="tag">${p.tag}</span></div>
+        <div class="info"><div class="category">${p.category}</div><h3>${p.name}</h3><p class="desc">${p.desc}</p>
+          <div class="bottom"><span class="price">${p.price}</span><a class="buy" href="${p.link}" ${p.link!=="#"?'target="_blank" rel="noopener noreferrer"':''}>View product ↗</a></div>
+        </div>
+      </article>`).join(""):`<div class="empty">No products found. Try another search.</div>`;
+  }
+  document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
+    document.querySelector(".filter.active").classList.remove("active");
+    btn.classList.add("active");activeFilter=btn.dataset.filter;render();
+  }));
+  search.addEventListener("input",render);
+  document.getElementById("year").textContent=new Date().getFullYear();
+  render();
 </script>
-
 </body>
 </html>
